@@ -1,0 +1,28 @@
+﻿<controls:LibUserControl x:Class="Mohammad.Wpf.Windows.Controls.NavigationTabControl"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:controls="clr-namespace:Mohammad.Wpf.Windows.Controls"
+                         x:Name="Me"
+                         d:DesignHeight="300"
+                         d:DesignWidth="300"
+                         mc:Ignorable="d" Loaded="NavigationTabControl_OnLoaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <controls:NavigationBar x:Name="NavigationBar"
+                                Frame="{Binding ElementName=Frame}"
+                                ToggleButtonsStyle="{Binding ElementName=Me,
+                                                             Path=ToggleButtonsStyle}" />
+        <controls:LibFrame x:Name="Frame"
+                           Grid.Row="1"
+                           Background="{Binding Background,
+                                                ElementName=Me}"
+                           UseAnimation="{Binding ElementName=Me,
+                                                  Path=UseAnimation}"
+                           x:FieldModifier="public" />
+    </Grid>
+</controls:LibUserControl>
